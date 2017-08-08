@@ -1,0 +1,34 @@
+{
+  "name": "soda",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anamariamiehs/soda.git"
+  },
+  "author": "Anamaria Miehs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anamariamiehs/soda/issues"
+  },
+  "homepage": "https://github.com/anamariamiehs/soda#readme",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1",
+    "gulp-auto-restart": "0.0.3",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-embedlr": "^0.5.2",
+    "gulp-less": "^3.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-refresh": "^1.1.0",
+    "gulp-sourcemaps": "^2.1.1",
+    "gulp-uglify": "^2.0.0",
+    "tiny-lr": "^1.0.2"
+  }
+}
