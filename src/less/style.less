@@ -1,11 +1,13 @@
 @import "style-mixins.less";
 
+@font-primary: 'Poppins', sans-serif;
 @color-primary: #286191;
 @color-primary-dark: #13364f;
 @color-primary-darker: #1e2f3e;
+@color-form: @color-primary-darker;
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Poppins', sans-serif;
+	font-family: @font-primary;
 	text-transform: uppercase;
 	font-weight: bold;
 }
@@ -23,6 +25,45 @@ p {
 	font-weight: lighter;
 	margin-bottom: 1.5em;
 	color: @color-primary-dark;
+}
+
+textarea {
+	resize:none;
+	min-height: 10em;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .make-placeholder(@color-primary, @font-primary);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  .make-placeholder(@color-primary, @font-primary);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  .make-placeholder(@color-primary, @font-primary);
+}
+:-moz-placeholder { /* Firefox 18- */
+  .make-placeholder(@color-primary, @font-primary);
+}
+
+.btn {
+	.border-radius(0px);
+	border:none;
+	font-weight: bold;
+	text-transform: uppercase;
+
+	&.btn-lg {
+		font-size: 1.1em;
+		padding:.9em 2em;
+	}
+}
+
+.form-control {
+	background: #f2f3f3;
+	border: none;
+	border-bottom: 4px solid #c9d7e3;
+	.border-radius(0px);
+	.box-shadow(none);
+	padding: 1.5em 1em;
 }
 
 section {
@@ -109,5 +150,47 @@ section {
 			&.ministry {background: fade(@color-primary-darker, 95%) url("../img/logo_ministry.png") no-repeat center center}
 			&.freeview {background: fade(@color-primary-darker, 95%) url("../img/logo_freeview.png") no-repeat center center}
 			&.sony {background: fade(@color-primary-darker, 95%) url("../img/logo_sony.png") no-repeat center center}
+	}
+}
+
+.contact {
+	h1 {
+		border-bottom:1px solid @color-primary-dark;
+		padding:0 0 .5em;
+		margin-bottom: 1em;
+		display: inline-block;
+	}
+
+	span {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	form {
+		margin-top:1em;
+
+		.form-control {
+			margin-bottom: 1em;
+		}
+
+		.btn {
+			margin-top:1em;
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+footer {
+	font-size: .9em;
+	color:white;
+	padding: 2em 0;
+	background: darken(@color-primary-darker, 40%);
+	span {
+		float:left;
+	}
+	a {
+		color:white;
+		float:right;
 	}
 }
