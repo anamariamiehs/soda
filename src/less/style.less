@@ -1,10 +1,21 @@
+@import "style-mixins.less";
+
 @color-primary: #286191;
 @color-primary-dark: #13364f;
+@color-primary-darker: #1e2f3e;
 
 h1, h2, h3, h4, h5 {
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+h1 {
+	letter-spacing: 6px;
+}
+
+h2 {
+	letter-spacing: 4px;
 }
 
 p {
@@ -19,31 +30,32 @@ section {
 }
 
 
-.cover {
-	background-image:url("../img/cover.png");
-	background-size: cover;
-	padding: 10em 0 12em;
+.header {
+	&.cover {
+		background-image:url("../img/cover.png");
+		background-size: cover;
+		padding: 10em 0 12em;
 
-	h1 {
-		color:white;
-		margin:auto;
-		padding:1.5em 0 0.5em;
-		text-align: center;
-		font-size: 3em;
-		letter-spacing: 6px;
-	}
+		h1 {
+			color:white;
+			margin:auto;
+			padding:1.5em 0 0.5em;
+			text-align: center;
+			font-size: 3em;
+		}
 
-	.img-responsive {
-		margin:auto;
-		display: block;
-	}
+		.img-responsive {
+			margin:auto;
+			display: block;
+		}
 
-	.spacer {
-		height: 1px;
-		background-color: white;
-		width: 100%;
-		max-width: 45em;
-		margin:auto;
+		.spacer {
+			height: 1px;
+			background-color: white;
+			width: 90%;
+			max-width: 45em;
+			margin:auto;
+		}
 	}
 }
 
@@ -55,7 +67,47 @@ section {
 	h2 {
 		color:@color-primary;
 		font-size: 1.5em;
-		letter-spacing: 4px;
+	}
+}
 
+.clients {
+	text-align: center;
+	position: relative;
+	&.cover {
+		background-image:url("../img/cover_clients.jpg");
+		background-size: cover;
+		&:before {
+			content:'';
+			.abs-center();
+			background-color: fade(@color-primary-dark, 50%);
+		}
+	}
+
+	.container-fluid {
+		z-index: 1;
+		position: relative;
+	}
+
+	h1 {
+		border-bottom:1px solid white;
+		color:white;
+		padding:0 0 .5em;
+		margin-bottom: 1em;
+		width: auto;
+		display: inline-block;
+	}
+
+	.square {
+		padding-bottom: 100%;
+		margin: 1em 0;
+
+			&.grand-union {background: fade(@color-primary-darker, 95%) url("../img/logo_grand.png") no-repeat center center}
+			&.kings-college {background: fade(@color-primary-darker, 95%) url("../img/logo_kings.png") no-repeat center center}
+			&.peldonrose {background: fade(@color-primary-darker, 95%) url("../img/logo_peldonrose.png") no-repeat center center}
+			&.studio-output {background: fade(@color-primary-darker, 95%) url("../img/logo_studio.png") no-repeat center center}
+			&.barclays {background: fade(@color-primary-darker, 95%) url("../img/logo_barclays.png") no-repeat center center}
+			&.ministry {background: fade(@color-primary-darker, 95%) url("../img/logo_ministry.png") no-repeat center center}
+			&.freeview {background: fade(@color-primary-darker, 95%) url("../img/logo_freeview.png") no-repeat center center}
+			&.sony {background: fade(@color-primary-darker, 95%) url("../img/logo_sony.png") no-repeat center center}
 	}
 }
