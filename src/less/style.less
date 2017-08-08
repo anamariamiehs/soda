@@ -1,40 +1,40 @@
 @import "style-variables.less";
 @import "style-mixins.less";
-
+@import "variables.less";
 
 @font-face {
-    font-family: 'Avenir';
-    src: url('aeh-webfont.woff2') format('woff2'),
-         url('aeh-webfont.woff') format('woff');
-    font-weight: bolder;
+    font-family: "Avenir";
+    src: url("../fonts/AvenirLT95Black.ttf");
+    font-weight: 800;
 }
 
 @font-face {
     font-family: "Avenir";
     src: url("../fonts/AvenirLTStd-Roman.otf");
-    font-weight: bold;
+    font-weight: 700;
 }
 
 @font-face {
     font-family: "Avenir";
     src: url("../fonts/AvenirLTStd-Book.otf");
-    font-weight: normal;
+    font-weight: 400;
 }
 @font-face {
     font-family: "Avenir";
     src: url("../fonts/AvenirLTStd-Light.otf");
-    font-weight: lighter;
+    font-weight: 300;
 }
 
 
 body {
 	font-family: @font-primary;
+	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5 {
 	font-family: @font-primary;
 	text-transform: uppercase;
-	font-weight: bolder;
+	font-weight: 800;
 }
 
 h1 {
@@ -49,7 +49,7 @@ p {
 	font-size: 1.5em;
 	margin-bottom: 1.5em;
 	color: @color-primary-dark;
-	font-weight: lighter;
+	font-weight: 300;
 }
 
 textarea {
@@ -73,7 +73,7 @@ textarea {
 .btn {
 	.border-radius(0px);
 	border:none;
-	font-weight: bold;
+	font-weight: 700;
 	text-transform: uppercase;
 
 	&.btn-lg {
@@ -133,6 +133,11 @@ section {
 	h2 {
 		color:@color-primary;
 		font-size: 1.5em;
+		margin-bottom: 2em;
+
+		@media (max-width: @screen-xs-max) {
+			text-align: center;
+		}
 	}
 }
 
@@ -184,15 +189,26 @@ section {
 		padding:0 0 .5em;
 		margin-bottom: 1em;
 		display: inline-block;
+
+		@media (max-width: @screen-xs-max) {
+			text-align: center;
+		}
 	}
 
 	span {
-		font-weight: bold;
+		font-weight: 700;
 		text-transform: uppercase;
+	}
+
+	.contacts {
+		@media (max-width: @screen-xs-max) {
+			text-align: center;
+		}
 	}
 
 	form {
 		margin-top:1em;
+		max-width: 320px;
 
 		.form-control {
 			margin-bottom: 1em;
@@ -202,6 +218,10 @@ section {
 			margin-top:1em;
 			display: block;
 			width: 100%;
+		}
+
+		@media (max-width: @screen-xs-max) {
+			margin:auto;
 		}
 	}
 }
