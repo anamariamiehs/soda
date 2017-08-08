@@ -1,15 +1,40 @@
+@import "style-variables.less";
 @import "style-mixins.less";
 
-@font-primary: 'Poppins', sans-serif;
-@color-primary: #286191;
-@color-primary-dark: #13364f;
-@color-primary-darker: #1e2f3e;
-@color-form: @color-primary-darker;
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('aeh-webfont.woff2') format('woff2'),
+         url('aeh-webfont.woff') format('woff');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("../fonts/AvenirLTStd-Roman.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("../fonts/AvenirLTStd-Book.otf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("../fonts/AvenirLTStd-Light.otf");
+    font-weight: lighter;
+}
+
+
+body {
+	font-family: @font-primary;
+}
 
 h1, h2, h3, h4, h5 {
 	font-family: @font-primary;
 	text-transform: uppercase;
-	font-weight: bold;
+	font-weight: bolder;
 }
 
 h1 {
@@ -22,9 +47,9 @@ h2 {
 
 p {
 	font-size: 1.5em;
-	font-weight: lighter;
 	margin-bottom: 1.5em;
 	color: @color-primary-dark;
+	font-weight: lighter;
 }
 
 textarea {
