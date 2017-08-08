@@ -6,7 +6,7 @@ var less = require('gulp-less');
 var refresh = require('gulp-livereload');
 var lr = require('tiny-lr');
 var server = lr();
-var minifyCSS = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var embedlr = require('gulp-embedlr');
 var browserSync = require('browser-sync').create();
 
@@ -14,7 +14,7 @@ var autoRestart = require('gulp-auto-restart');
 autoRestart({'task': 'watch'});
 
 var resCss = [
-        './src/less/variables.less'
+        './src/less/bootstrap.less'
         ]
 
 var resJs = [
@@ -48,14 +48,14 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
     gulp.src(resCss)
         .pipe(sourcemaps.init())
-        .pipe(minifyCSS())
+        .pipe(cleanCSS())
         .pipe(concat('resources.css'))
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest('./dist/css'));
 
-    gulp.src(['./src/css/style.less'])
+    gulp.src(['./src/less/style.less'])
         .pipe(less())
-        .pipe(minifyCSS())
+        .pipe(cleanCSS())
         .pipe(gulp.dest('./dist/css'))
         .pipe(refresh(server))
         .pipe(browserSync.stream({match: '**/*.css'}))
@@ -97,7 +97,7 @@ gulp.task('serve', function() {
         gulp.run('scripts');
     })
 
-    gulp.watch('./src/css/**', function(event) {
+    gulp.watch('./src/less/**', function(event) {
         gulp.run('styles');
     })
 
