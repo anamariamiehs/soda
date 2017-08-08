@@ -17,6 +17,11 @@ var resCss = [
         './src/less/bootstrap.less'
         ]
 
+var css = [
+		'./src/less/style-mixins.less',
+		'./src/less/style.less'
+		]
+
 var resJs = [
         './src/js/button.js'
         ]
@@ -48,6 +53,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
     gulp.src(resCss)
         .pipe(sourcemaps.init())
+        .pipe(less())
         .pipe(cleanCSS())
         .pipe(concat('resources.css'))
         .pipe(sourcemaps.write('maps'))
@@ -65,6 +71,12 @@ gulp.task('fonts', function() {
   gulp.src('./src/fonts/**.*')
         .pipe(gulp.dest('./dist/fonts'));
 })
+
+gulp.task('images', function() {
+  gulp.src('./src/img/**.*')
+        .pipe(gulp.dest('./dist/img'));
+})
+
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -91,7 +103,7 @@ gulp.task('html', function() {
 
 gulp.task('serve', function() {
     
-    gulp.run('lr-server', 'fonts', 'scripts', 'styles', 'html', 'browser-sync');
+    gulp.run('lr-server', 'fonts', 'scripts', 'styles', 'images', 'html', 'browser-sync');
 
     gulp.watch('./src/js/**', function(event) {
         gulp.run('scripts');
