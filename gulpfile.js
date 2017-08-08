@@ -14,11 +14,11 @@ var autoRestart = require('gulp-auto-restart');
 autoRestart({'task': 'watch'});
 
 var resCss = [
-        './src/css/bootstrap.css'
+        './src/less/variables.less'
         ]
 
 var resJs = [
-        './src/js/bootstrap.js'
+        './src/js/button.js'
         ]
 
 var js = [
