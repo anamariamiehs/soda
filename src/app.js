@@ -14,14 +14,13 @@ new Vue({
         },
   methods: {
     submitForm: function () {
-		console.log(this.model)
 		$.ajax({
 		url: CONTACT_URL,
 		type: 'post',
 		data: {
-		name: 'name',
-		email: 'email',
-		message: 'message'
+		name: this.model.name,
+		email: this.model.email,
+		message: this.model.message
 		},
 		success: function (response) {
 			alert("Thank you for contacting us");
