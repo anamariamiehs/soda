@@ -77,6 +77,11 @@ gulp.task('images', function() {
         .pipe(gulp.dest('./dist/img'));
 })
 
+gulp.task('app', function() {
+  gulp.src('./src/app.js')
+        .pipe(gulp.dest('./dist/'));
+})
+
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -103,7 +108,7 @@ gulp.task('html', function() {
 
 gulp.task('serve', function() {
     
-    gulp.run('lr-server', 'fonts', 'scripts', 'styles', 'images', 'html', 'browser-sync');
+    gulp.run('lr-server', 'fonts', 'scripts', 'styles', 'images', 'app', 'html', 'browser-sync');
 
     gulp.watch('./src/js/**', function(event) {
         gulp.run('scripts');
@@ -115,5 +120,9 @@ gulp.task('serve', function() {
 
     gulp.watch('./src/*.html', function(event) {
         gulp.run('html');
+    })
+
+    gulp.watch('./src/app.js', function(event) {
+        gulp.run('app');
     })
 })

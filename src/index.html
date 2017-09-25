@@ -18,7 +18,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
   </head>
   <body>
 
@@ -112,11 +113,29 @@
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12">
          
-            <form>
-              <input class="form-control" type="email" name="email" placeholder="Email Address">
-              <input class="form-control" type="name" name="name" placeholder="Name">
-              <textarea class="form-control" placeholder="Message"></textarea>
-              <input class="btn btn-lg btn-primary" type="submit" name="submit" value="Submit">
+            <form id="app" v-on:submit.prevent="submitForm" novalidate>
+              <input
+                v-model="model.email"
+                v-validate="'required|email'"
+                v-bind:class="{'form-control': true, 'error': errors.has('email') }"
+                type="email" name="email" placeholder="Email Address">
+              <span v-show="errors.has('email')" class="text-danger">{{ errors.first('email') }}</span>
+
+              <input
+                v-model="model.name"
+                v-validate="'required|min:2'"
+                v-bind:class="{'form-control': true, 'error': errors.has('name') }"
+                type="text" name="name" placeholder="Name">
+              <span v-show="errors.has('name')" class="text-danger">{{ errors.first('name') }}</span>
+
+              <textarea
+                v-model="model.message"
+                v-validate="'required|min:10|max:200'"
+                v-bind:class="{'form-control': true, 'error': errors.has('message') }"
+                placeholder="Message" name="message"></textarea>
+              <span v-show="errors.has('message')" class="text-danger">{{ errors.first('message') }}</span>
+
+              <input class="btn btn-lg btn-primary" type="submit" name="submit" value="Submit" :disabled="errors.any()">
             </form>
 
 
@@ -134,5 +153,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/resources.js"></script>
+    <script src="app.js"></script>
+
   </body>
 </html>

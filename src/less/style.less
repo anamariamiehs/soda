@@ -90,6 +90,11 @@ textarea {
 	.box-shadow(none);
 	padding: 1em;
 	height:44px;
+
+	&.error {
+		background: #fff0f0;
+    	border-bottom-color: #ca7171;
+	}
 }
 
 section {
@@ -215,6 +220,12 @@ section {
 	span {
 		font-weight: 700;
 		text-transform: uppercase;
+
+		&.text-danger {
+		    position: absolute;
+		    font-size: 11px;
+		    margin-top: -15px;
+		}
 	}
 
 	.contacts {
